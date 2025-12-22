@@ -1,0 +1,107 @@
+@use './roots/' as *;
+.cat{
+	padding-top: 40px;
+	margin-bottom: 165px;
+	@media screen and (min-width:1024px) {
+		padding-top: 64px;
+		margin-bottom: 200px;
+	}
+	&__items{
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 16px;
+		@media screen and (min-width:1240px) {
+			grid-template-columns: repeat(6, 1fr);
+		}
+		@media screen and (min-width:1024px) and (max-width:1239.9px) {
+			grid-template-columns: repeat(4, 1fr);
+		}		
+	}
+	&__item{
+		display: flex;
+		flex-grow: 1;
+		height: 260px;
+		position: relative;
+		flex-direction: column;
+		padding: 16px;
+		text-align: left;
+		overflow: hidden;
+		width: 100%;
+		@media screen and (min-width:1240px) {
+			text-align: center;
+		}
+		&:hover{
+			h3{
+				background-size: 100% 1px;
+			}
+		}
+		& img{
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			z-index: 1;
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+		}
+		&:before{
+			content: '';
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			z-index: 2;
+			opacity: 0.8;
+background: linear-gradient(0deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.00) 50%, rgba(0, 0, 0, 0.00) 100%);
+		}
+		h3{
+		position: relative;
+		z-index: 3;
+		
+		color: $white;
+		font-size: 14px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 21px; /* 150% */
+		letter-spacing: 0.35px;
+		text-transform: uppercase;
+		width: fit-content;		
+			transition: background-size 600ms ease-out;
+			text-decoration: none;
+			background-image: linear-gradient($white, $white);
+			background-repeat: no-repeat;
+			background-size: 0% 1px;
+			background-position: 0 100%;
+			@media screen and (min-width:1024px) {
+				margin: 0 auto;
+				margin-top: auto;
+			}
+		}
+		&-sale{
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 2;
+			background-color: $accent-300;
+			color: $white;
+			font-family: "Manrope";
+			background-color: #b2806f;
+				font-weight: 700;
+				left: -28px;
+				line-height: 20px;
+				max-width: 110px;
+				padding: 7px 0 6px;
+				position: absolute;
+				text-transform: uppercase;
+				top: 7px;
+				-webkit-transform: rotate(-44.461deg);
+				-ms-transform: rotate(-44.461deg);
+				transform: rotate(-44.461deg);
+				width: 100%;
+				z-index: 2;
+		}
+	}
+}

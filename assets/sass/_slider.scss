@@ -1,0 +1,213 @@
+@use './roots/' as *;
+.cards{
+&__item{
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		height: auto;
+		&__top{
+			position: relative;			
+			&:hover{
+				button{
+					opacity: 1;
+				}
+				img{
+					transform: scale(1.1);
+				}
+			}
+			a{
+				position: relative;
+				z-index: 0;
+				width: 100%;
+				height: 100%;
+				max-width: 100%;
+				max-height: 100%;
+				overflow: hidden;
+				display: flex;
+					aspect-ratio: 3 / 4;
+				background-color: #F6F6F6;
+				img{
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					transition: 600ms ease-out;
+				}
+			}
+			span{
+				position: absolute;
+				top: 16px;
+				left: 16px;
+				background-color: $accent;
+				color: $white;
+				font-size: 10px;
+				font-style: normal;
+				font-weight: 700;
+				line-height: 15px; /* 150% */
+				letter-spacing: 1.117px;
+				text-transform: uppercase;
+				padding: 4px 12px;
+				width: fit-content;
+				z-index: 1;
+				
+			}
+			button{
+				position: absolute;
+				bottom: 12px;
+				right:12px;
+				padding: 12px;
+				border: 1px solid $black;
+				box-shadow: 0 2px 4px -2px rgba(0, 0, 0, 0.10);
+				border-radius: 50%;
+				background-color: transparent;
+				outline: none;
+				transition: 600ms ease-out;
+				opacity: 0;
+				aspect-ratio: 1;
+				max-width: 40px;
+				max-height: 40px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				transition: 600ms ease-out;
+				&:hover{
+					border-color: $accent;
+					svg{
+						path{
+							stroke: $accent;
+						}
+					}
+				}
+				svg path{
+					transition: 600ms ease-out;
+				}
+			}
+		}
+		&__bottom{
+			display: flex;
+			flex-direction: column;
+			gap: 6px;
+			flex-grow: 1;
+			height: 100%;
+			&-cat{
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				color: $gray;
+				font-size: 10px;
+				font-style: normal;
+				font-weight: 600;
+				line-height: 15px; /* 125% */
+				letter-spacing: 0.617px;
+				text-transform: uppercase;
+				@media screen and (min-width:1024px) {
+					font-size: 12px;
+				}
+			
+			}
+				a{
+				display: -webkit-box;
+				-webkit-line-clamp: 2;
+				-webkit-box-orient: vertical;
+				overflow: hidden;
+
+				position: relative;
+				text-decoration: none;
+
+				font-size: 12px;
+				font-weight: 600;
+				line-height: 19.25px;
+				text-transform: uppercase;
+				color: $black;
+				text-decoration: none;
+				&:hover {
+					text-decoration: underline;
+				}
+				@media screen and (min-width:1024px) {
+						font-size: 14px;
+					}
+				}
+			&-price{
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				gap: 8px;
+				margin-top: auto;
+				span{
+					font-size: 14px;
+					font-style: normal;
+					font-weight: 700;
+					line-height: 24px; /* 150% */
+					letter-spacing: -0.312px;
+					color: $black;
+					@media screen and (min-width:1024px) {
+						font-size: 16px;
+					}
+					&.cards__item__sale{
+						color:$gray;
+						font-size: 12px;
+						font-style: normal;
+						font-weight: 400;
+						line-height: 24px; /* 200% */
+						text-decoration-line: line-through;
+					}
+				}
+				button{
+					color: $accent;
+					text-align: center;
+					font-size: 10px;
+					font-style: normal;
+					font-weight: 700;
+					line-height: 16.5px; /* 150% */
+					letter-spacing: 0.614px;
+					text-transform: uppercase;
+					background-color: transparent;
+					text-decoration: underline;
+					margin-left: auto;
+					@media screen and (min-width:1024px) {
+							font-size: 11px;
+					}
+				}
+			}
+		}
+	}
+}
+
+.slider__arrows{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+
+}
+.slider__arrow{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 100px;
+	border: 0.615px solid $white-200;
+	max-width: 45px;
+	max-height: 45px;
+	width: 100%;
+	height: 100%;
+	aspect-ratio: 1;
+	min-width: 45px;
+	transition: 600ms ease-out;
+	cursor: pointer;
+	&.swiper-button-lock{
+		display: none;
+	}
+	&.swiper-button-disabled{
+		opacity: .4;
+		cursor: not-allowed;
+	}
+	&:hover{
+			border-color: $black;
+	}
+	&:active{
+		background-color: $black;
+		border-color: $white;
+		svg path{
+			stroke: $white;
+		}
+	}
+}

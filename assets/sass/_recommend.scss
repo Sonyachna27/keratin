@@ -1,0 +1,12 @@
+@use './roots/' as *;
+.recommend{
+	margin-bottom: 110px;
+	@media screen and (min-width:1240px) {
+		margin-bottom: 140px;
+	}
+		&__container{
+		@media screen and (min-width:1025px) and (max-width:1440px) {
+			padding: 0 16px;
+		}
+	}
+}
