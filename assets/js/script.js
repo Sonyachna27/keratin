@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	filtersFunction();
 	accordionFunction();
 	toggleFilters();
+	openTabs();
 });
 
 const openSearch = () => {
@@ -88,6 +89,7 @@ const toggleFilters = () => {
   const openFiltersBtn = document.querySelector(".catalog__filters__btn");
 	const closeFiltersBtn = document.querySelector(".burger-filters");
 	const closeBurger = document.querySelector(".overlay");  
+	if(!openFiltersBtn) return;
     openFiltersBtn.addEventListener("click", (event) => {
       event.stopPropagation();
       htmlElement.classList.toggle("open-filter");
@@ -99,6 +101,52 @@ const toggleFilters = () => {
 		htmlElement.classList.toggle("open-filter");
 	});
 };
+const openTabs = () => {
+  const tabGroups = document.querySelectorAll(".target__wrap");
+console.log(tabGroups);
+
+
+  tabGroups.forEach((group) => {
+    const tabsLinks = group.querySelectorAll(".target__list-item");
+    const allContentBlocks = group.querySelectorAll(".target__content");
+console.log(tabsLinks );
+    allContentBlocks.forEach(block => {
+      block.style.display = "none";
+      block.style.opacity = 0;
+    });
+
+    tabsLinks.forEach(button => {
+      if (button.classList.contains('active')) {
+        const target = group.querySelector(`#${button.dataset.name}`);
+        if (target) {
+          target.style.display = "flex";
+          target.style.opacity = 1;
+        }
+      }
+    });
+    tabsLinks.forEach(button => {
+      button.addEventListener("click", () => {
+        const target = group.querySelector(`#${button.dataset.name}`);
+        if (!target) return;
+
+        const isActive = button.classList.contains("active");
+
+        button.classList.toggle("active");
+
+        if (isActive) {
+          target.style.opacity = 0;
+          target.style.display = "none";
+        } else {
+          target.style.display = "flex";
+          requestAnimationFrame(() => {
+            target.style.opacity = 1;
+          });
+        }
+      });
+    });
+  });
+};
+
 
 const openMenu = () => {
   const windowWidth = window.innerWidth;

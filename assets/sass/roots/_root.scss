@@ -295,8 +295,12 @@ height: 24px;
 			line-height: 20px; /* 142.857% */
 			letter-spacing: -0.15px;
 			cursor: pointer;
+			transition: 600ms ease-out;
 			&.current{
 				border-color: $accent;
+			}
+			&:hover{
+				text-decoration: underline;
 			}
 		}
 	}
@@ -310,12 +314,21 @@ height: 24px;
 		font-weight: 500;
 		line-height: 20px; 
 		letter-spacing: -0.15px;
+		transition: border-bottom-color 600ms ease-out;
+		border-bottom: 1px solid transparent;
 		svg{
 			width: 16px;
 			height: 16px;
 		}
 		&.disable{
 			opacity: .1;
+			cursor:not-allowed;
+			&:hover{
+				border-bottom-color:transparent ;
+			}
+		}
+		&:hover{
+			border-bottom-color:$black ;
 		}
 	}
 }

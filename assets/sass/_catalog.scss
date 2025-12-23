@@ -17,8 +17,7 @@
 		&-btns{
 			display: flex;
 			align-items: center;
-			justify-content: space-between;
-			gap: 20px;
+			gap: 8px;
 			width: 100%;
 			@media screen and (min-width:1240px) {
 				width: fit-content;
@@ -34,19 +33,34 @@
 		padding: 9px 12px;
 		border-radius: 8px;
 		background-color: transparent;
-		border: 0.615px solid $white-200;
-		font-size: 12px;
-		font-style: normal;
-		font-weight: 500;
-		line-height: 17.143px; /* 142.858% */
-		letter-spacing: 0.6px;
-		text-transform: uppercase;
-		@media screen and (min-width:1240px) {
-			display: none;
-		}
+		border: 0.615px solid $white-200;		
 		svg{
 			width: 16px;
 			height: 16px;
+		}
+	}
+	&__filters__kill{
+		display: flex;
+		align-items: center;
+		justify-content:center;
+		margin-right: auto;
+		background-color: transparent;
+		svg{
+			width: 12px;
+			height: 12px;
+		}
+	}
+	&__btn,
+	&__filters__kill{
+		font-size: 12px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 17.143px; 
+		letter-spacing: 0.6px;
+		text-transform: uppercase;
+		background-color: transparent;
+		@media screen and (min-width:1240px) {
+			display: none;
 		}
 	}
 	&__filter__sort{
