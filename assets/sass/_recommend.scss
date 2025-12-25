@@ -1,5 +1,6 @@
 @use './roots/' as *;
-.recommend{
+.recommend,
+.like{
 	margin-bottom: 110px;
 	@media screen and (min-width:1240px) {
 		margin-bottom: 140px;

@@ -102,7 +102,18 @@ body:has(main > .inst) footer {
 	width: 100%;
 	padding: 0 16px;
 	margin: 0 auto;
-	
+}
+.container-l{
+	max-width: 1332px;
+	width: 100%;
+	padding: 0 16px;
+	margin: 0 auto;
+	@media screen and (min-width:1024px) and (max-width:1239.9px){
+		padding: 0 16px 0 48px;
+	}
+	@media screen and (min-width:1240px) {
+		padding: 0 16px 0 56px;
+	}
 }
 
 
@@ -215,6 +226,15 @@ height: 24px;
 			&:hover {
 				background-size: 100% 1px;
 			}		
+		}
+		span{
+			font-size: 14px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: 21px;				
+			&:nth-last-of-type(1){
+				color: $black;
+			}
 		}
 }
 .accord {
@@ -331,4 +351,9 @@ height: 24px;
 			border-bottom-color:$black ;
 		}
 	}
+}
+
+.accord-icon-wrapper{
+	transition:600ms ease-out;
+	
 }

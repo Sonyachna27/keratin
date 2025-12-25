@@ -10,6 +10,9 @@ document.addEventListener("DOMContentLoaded", function () {
 	accordionFunction();
 	toggleFilters();
 	openTabs();
+	productInitSlider();
+	likeSliderInit();
+	animationCount();
 });
 
 const openSearch = () => {
@@ -103,20 +106,31 @@ const toggleFilters = () => {
 };
 const openTabs = () => {
   const tabGroups = document.querySelectorAll(".target__wrap");
-console.log(tabGroups);
-
+  const FIRST_VISIBLE_COUNT = 5;
 
   tabGroups.forEach((group) => {
     const tabsLinks = group.querySelectorAll(".target__list-item");
     const allContentBlocks = group.querySelectorAll(".target__content");
-console.log(tabsLinks );
+
     allContentBlocks.forEach(block => {
       block.style.display = "none";
       block.style.opacity = 0;
     });
 
+    const hasActive = Array.from(tabsLinks).some(btn =>
+      btn.classList.contains("active")
+    );
+
+    if (!hasActive) {
+      Array.from(tabsLinks)
+        .slice(0, FIRST_VISIBLE_COUNT)
+        .forEach(button => {
+          button.classList.add("active");
+        });
+    }
+
     tabsLinks.forEach(button => {
-      if (button.classList.contains('active')) {
+      if (button.classList.contains("active")) {
         const target = group.querySelector(`#${button.dataset.name}`);
         if (target) {
           target.style.display = "flex";
@@ -124,6 +138,7 @@ console.log(tabsLinks );
         }
       }
     });
+
     tabsLinks.forEach(button => {
       button.addEventListener("click", () => {
         const target = group.querySelector(`#${button.dataset.name}`);
@@ -145,6 +160,47 @@ console.log(tabsLinks );
       });
     });
   });
+};
+
+const animationCount = () => {
+  const animationDuration = 3000;
+  const frameDuration = 1000 / 60;
+  const totalFrames = Math.round(animationDuration / frameDuration);
+  const easeOutQuad = t => t * (2 - t);
+
+  const numScroll = (statValue) => {
+    const countTo = parseInt(statValue.dataset.target.replace(/,/g, ''), 10);
+
+    let frame = 0;
+    const counter = setInterval(() => {
+      frame++;
+      const progress = easeOutQuad(frame / totalFrames);
+      const currentCount = Math.round(countTo * progress);
+
+      statValue.innerHTML = currentCount;
+
+      if (frame === totalFrames) {
+        clearInterval(counter);
+        statValue.innerHTML = countTo;
+      }
+    }, frameDuration);
+  };
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const statValues = entry.target.querySelectorAll('.stat-value');
+        statValues.forEach(numScroll);
+
+        // щоб не запускалось вдруге
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.7 });
+
+  document
+    .querySelectorAll('.about__content__count__item')
+    .forEach(section => observer.observe(section));
 };
 
 
@@ -228,6 +284,34 @@ const recommendSliderInit = () =>{
   },
   breakpoints: {
     0: {
+      slidesPerView: 2,
+      spaceBetween: 16,
+    },
+    768: {
+      slidesPerView: 3,
+      spaceBetween: 24,
+    },
+   1024: {
+      slidesPerView: 4,
+      spaceBetween: 24,
+    }
+	},
+});
+
+}
+const likeSliderInit = () =>{
+	const likeSliderWrap = document.querySelector('.likeSlider');
+	if(!likeSliderWrap) return;
+		
+	const likeSlider = new Swiper('.likeSlider', {
+  slidesPerView: 1,
+  spaceBetween: 16,
+  navigation: {
+    nextEl: ".like-button-next",
+    prevEl: ".like-button-prev",
+  },
+  breakpoints: {
+    280: {
       slidesPerView: 2,
       spaceBetween: 16,
     },
@@ -393,6 +477,33 @@ const filtersFunction = () => {
     updateValues();
   });
 };
+
+const productInitSlider = () =>{
+	const productSliderWrap = document.querySelector('.productSlider');
+	const productSliderWrap2 = document.querySelector('.productSlider2');
+	if(!productSliderWrap || !productSliderWrap2) return;
+
+		
+	    const productSlider = new Swiper(productSliderWrap, {
+      spaceBetween: 10,
+      slidesPerView: 3,
+      freeMode: true,
+      watchSlidesProgress: true,
+			navigation: {
+        nextEl: ".product-button-next",
+        prevEl: ".product-button-prev",
+      },
+    });
+    const productSlider2 = new Swiper(productSliderWrap2, {
+      spaceBetween: 10,
+			      
+      thumbs: {
+        swiper: productSlider,
+      },
+    });
+}
+
+
 let resizeTimeout;
 
 window.addEventListener('resize', () => {

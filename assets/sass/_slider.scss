@@ -122,7 +122,6 @@
 				border-bottom: 1px solid transparent;
 				transition: border-bottom-color 600ms ease-out;
 				&:hover {
-					// text-decoration: underline;
 					border-bottom-color:$black ;
 				}
 				@media screen and (min-width:1024px) {
