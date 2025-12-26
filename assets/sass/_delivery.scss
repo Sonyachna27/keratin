@@ -1,0 +1,148 @@
+@use './roots/' as *;
+.delivery{
+	margin-bottom: 120px;
+	&__content{
+		display: flex;
+		flex-direction: column;
+		gap: 44px;
+		@media screen and (min-width:1024px) and (max-width:1023.9px) {
+			gap: 64px;
+		}
+		@media screen and (min-width:1240px) {
+			gap: 47px;
+		}
+
+	}
+	&__item{
+		&__wrap{
+			@media screen and (min-width:1240px) {
+				padding-left: 56px;
+			}
+		}
+		&__title{
+			margin-bottom: 24px;
+			@media screen and (min-width:1024px) and (max-width:1023.9px) {
+				gap: 40px;
+			}
+			@media screen and (min-width:1240px) {
+				gap: 16px;
+			}
+		}
+		&__elements{
+			display: flex;
+			flex-direction: column;
+			gap: 18px;
+			@media screen and (min-width:1024px) and (max-width:1023.9px) {
+				gap: 24px;
+			}
+			@media screen and (min-width:1240px) {
+				gap: 16px;
+			}
+			@media screen and (min-width:1024px) {
+				flex-direction: row;
+				flex-wrap: wrap;
+			}
+		}
+		&__element{
+			display: flex;
+			flex-direction: column;
+			border-radius: 4px;
+			border-left: 1.846px solid $gray;
+			background: rgba(204, 204, 204, 0.10);
+			padding: 16px;
+			width: 100%;
+			@media screen and (min-width:1024px) {
+				width: calc(50% - 8px);
+			}
+			&.special{
+				border-left-color: $accent;
+				background: rgba(200, 178, 144, 0.10);
+				div{
+					color: $accent;
+				}
+			}
+			div{
+				font-size: 12px;
+				font-style: normal;
+				font-weight: 400;
+				line-height: 18px; 
+				letter-spacing: 0.6px;
+				text-transform: uppercase;
+				color: $gray;				
+				gap: 8px;
+				@media screen and (min-width:1024px) and (max-width:1023.9px) {
+					gap: 6px;
+				}
+				@media screen and (min-width:1240px) {
+					gap: 4px;
+				}
+			}
+			p{
+				font-size: 14px;
+				font-style: normal;
+				font-weight: 500;
+				line-height: 21px;
+				margin-bottom: 0;
+				strong{
+					color: $black;
+				}
+
+			}
+			span{
+				font-size: 12px;
+				font-style: normal;
+				font-weight: 400;
+				line-height: 21px;
+				color: $gray-100;
+			}
+		}
+		&__links{
+			display: flex;
+			flex-direction: column;
+			gap: 16px;
+			margin-bottom: 24px;			
+		}
+		&__link{
+			display: flex;
+			gap: 12px;
+			align-items: flex-start;
+			svg{
+				max-width: 18px;
+				max-height: 18px;
+			}
+			&-wrap{
+				display: flex;
+				flex-direction: column;
+				span{
+				font-size: 16px;
+				font-style: normal;
+				font-weight: 500;
+				line-height: 24px;
+				display: inline-block;
+				@media screen and (min-width:1240px) {
+					line-height: 20px;
+				}
+				&:nth-of-type(2){
+					font-size: 14px;
+					font-style: normal;
+					font-weight: 400;
+					line-height: 21px;
+					color: $gray;
+				}
+			}
+			}
+			
+		}
+		a{
+			font-size: 14px;
+			font-style: normal;
+			font-weight: 700;
+			line-height: 21px; 
+			letter-spacing: 1.4px;
+			text-transform: uppercase;
+			padding-bottom: 4px;
+			color: $accent;
+			border-bottom: 0.615px solid $accent;
+		}
+	}
+}

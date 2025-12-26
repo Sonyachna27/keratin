@@ -1,21 +1,9 @@
 @use './roots/' as *;
 .payment{
 	margin-bottom: 120px;
-	&__wrap{
-		display: flex;
-		gap: 24px;
-		@media screen and (min-width:1240px) {
-			gap: 42px;
-		}
-	}
+
 	&__info{
-		width: calc(100% - 39% - 24px);
-		@media screen and (min-width:1240px) {
-			width: calc(100% - 33% - 42px);
-		}
-		@media screen and (max-width:1023.9px) {
-		width: 100%;
-		}
+	
 		blockquote{
 			border-radius: 0 4px 4px 0;
 			border-left: 3.536px solid $accent;
@@ -48,63 +36,7 @@
 			}
 		}
 	}
-	&__img{
-		position: sticky;
-		top: 0;
-		right: 0;
-		width: 39%;
-		max-height: 600px;
-		height: 100%;
-		display: flex;
-		@media screen and (min-width:1240px) {
-			width: 33%;
-		}
-		@media screen and (max-width:1023.9px) {
-			display: none;
-		}
-		&:before{
-			content: '';
-			width: 100%;
-			height: 100%;
-			position: absolute;
-			top: 0;
-			left: 0;
-			bottom: 0;
-			right: 0;
-			background: linear-gradient(0deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.00) 100%);
-			z-index: 1;
-		}
-		& img{
-			&:nth-of-type(1){
-				object-fit: cover;
-			}
-			&:nth-of-type(2){
-				position: absolute;
-				bottom: 26px;
-				left: 26px;
-				max-width: 294px;
-				width: 100%;
-				z-index: 2;
-			}
-		}
-	}
-	&__info{
-		p{
-				font-size: 16px;
-				font-style: normal;
-				font-weight: 400;
-				line-height: 26px;
-				color: $gray-100;
-				margin-bottom: 32px;
-					@media screen and (min-width:1024px) and (max-width:1240px) {
-					font-size: 18px;
-					font-style: normal;
-					font-weight: 300;
-					line-height: 32px;
-					margin-bottom: 40px;
-				}
-			}
-	}
+	
 
 	&__bank{
 		padding: 32px;
