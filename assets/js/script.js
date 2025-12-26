@@ -503,6 +503,23 @@ const productInitSlider = () =>{
     });
 }
 
+const copyDetails = () =>{
+	
+  const iban = document.getElementById("ibanValue").innerText;
+
+  navigator.clipboard.writeText(iban).then(() => {
+    const btn = document.querySelector(".payment__bank-info__copy");
+    const originalText = btn.innerText;
+
+    btn.innerText = "Скопійовано ✓";
+
+    setTimeout(() => {
+      btn.innerText = originalText;
+    }, 2000);
+  });
+
+
+}
 
 let resizeTimeout;
 

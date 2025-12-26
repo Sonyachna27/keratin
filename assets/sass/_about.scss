@@ -23,7 +23,6 @@
 		position: relative;
 		width: 100%;
 		aspect-ratio: 3/4;
-		height: fit-content;
 		@media screen and (min-width:1240px) {
 			width: 41%;
 		}
@@ -39,6 +38,8 @@
 			max-height: 100%;			
 			position: relative;
 			z-index: 2;
+			height: 100%;
+			object-fit: cover;
 			@media screen and (max-width:1023px) {
 				width: calc(100% - 24px);
 				margin-left: auto;
@@ -51,7 +52,7 @@
 			background-color: transparent;
 			border: 1px solid $accent;
 			position: absolute;
-			top: -7px;
+			top: 0px;
 			left: 0px;
 			z-index: 1;
 			@media screen and (min-width:1024px)  and (max-width:1239.9px){
@@ -71,18 +72,16 @@
 		@media screen and (min-width:1024px) and (max-width:1239.9px) {
 			width: 51%;
 		}
-		&__prev{
-			display: inline-block;
-			font-size: 14px;
+		
+		& p, ul, ol{
+			font-size: 16px;
 			font-style: normal;
-			font-weight: 700;
-			line-height: 20px; 
-			letter-spacing: 2px;
-			text-transform: uppercase;
-			color: $accent;
-			margin-bottom: 12px;
+			font-weight: 300;
+			line-height: 26px;
+			color: $gray-100;
+			margin-bottom: 24px;
 			@media screen and (min-width:1024px) {
-			margin-bottom: 32px;
+				
 			}
 		}
 		h1{
@@ -100,6 +99,74 @@
 				font-size: 42px;
 				line-height: 46.2px;
 				margin-bottom: 32px;
+			}
+		}
+		&__sing{
+			display: flex;
+			align-items: center;
+			gap: 16px;
+			margin-bottom: 32px;
+			div{
+				height: 1px;
+				width:60px;
+				background-color: $accent;
+			}
+			span{
+				font-size: 14px;
+				font-style: italic;
+				font-weight: 500;
+				line-height: 21px;
+			}
+		}
+		&__text{
+			margin-bottom: 32px;
+		}
+		&__count{
+			display: flex;
+			gap: 16px;
+			justify-content: space-around;
+			&__item{
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-direction: column;
+				gap: 12px;
+				color: $accent;
+				text-align: center;
+				width: fit-content;
+				
+				font-size: 12px;
+				font-style: normal;
+				font-weight: 400;
+				line-height: 18px; /* 150% */
+				letter-spacing: 1.4px;
+				text-transform: uppercase;
+				color: $accent;
+				
+				*{
+					color: $accent;
+				}
+				// span{
+				// 	font-size: 12px;
+				// 	font-style: normal;
+				// 	font-weight: 400;
+				// 	line-height: 18px; /* 150% */
+				// 	letter-spacing: 1.4px;
+				// 	text-transform: uppercase;
+				// 	color: $accent;
+				// }
+				& div{
+					display: flex;
+					align-items: center;
+					
+						font-family: "Manrope";
+						font-size: 32px;
+						font-style: normal;
+						font-weight: 700;
+						line-height: 32px;
+					
+				
+				}
 			}
 		}
 	}
