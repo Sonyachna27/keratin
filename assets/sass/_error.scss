@@ -1,0 +1,78 @@
+@use './roots/' as *;
+.error{
+	padding: 48px 0 60px 0;
+	@media screen and (min-width:1024px) and (max-width:1239.9px) {
+		padding: 180px 0 247px;
+	}
+	@media screen and (min-width:1240px) {
+		padding: 101px 0 120px;
+	}
+	&__wrap{
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		flex-direction: column;
+		// padding: 66px 104px 40px 124px;
+		width: fit-content;
+		margin: 0 auto;
+		@media screen and (min-width:1024px) {
+			padding: 66px 104px 40px 124px;
+		}
+		div{
+			font-family: "Manrope";
+			font-size: 24px;
+			font-style: normal;
+			font-weight: 500;
+			line-height: 48px;
+			margin-bottom: 12px;
+			@media screen and (min-width:1024px) {
+				font-size: 32px;
+			}
+		}
+		p{
+			color: $gray-100;
+			text-align: center;
+			font-size: 16px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: 26px;
+			margin-bottom: 24px;
+			max-width: 482px;
+		}
+		& .btn{
+			max-width: 253px;
+			width: 100%;
+			padding: 16px;
+				font-size: 14px;
+				font-style: normal;
+				font-weight: 700;
+				line-height: 20px; 
+				letter-spacing: 1.4px;
+				text-transform: uppercase;
+				@media screen and (max-width:1023.9px) {
+					margin-bottom: 56px;
+				}
+		}
+		img{
+			max-width: 100%;
+			width: 100%;
+			@media screen and (max-width:1023.9px) {
+					max-width: 68%;
+					margin: 0 auto;
+				}
+			@media screen and (min-width:1024px) {
+				position: absolute;
+				width: 100%;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				object-fit: cover;
+				z-index: -1;
+				height: 100%;
+			}
+		}
+	}
+}

@@ -192,6 +192,7 @@ body{
 	font-style: normal;
 	font-weight: 500;
 	line-height: 24px;
+	gap: 8px;
 	color: $white;
 	background-color: $black;
 	border-radius: 16777200px;
@@ -199,10 +200,21 @@ body{
 	&:hover{
 		color: $accent;
 		text-decoration: underline;
+		svg path{
+			stroke:$accent;
+		}
 	}
 	&:active{
 		background-color: $accent;
 		color: $black;
+		svg path{
+			stroke:$black;
+		}
+	}
+	svg{
+		path{
+			transition: 600ms ease-out;
+		}
 	}
 }
 
@@ -542,3 +554,54 @@ height: 24px;
 			gap: 42px;
 		}
 	}
+		.product__count,
+		.counter{
+			display: flex;
+			align-items: center;
+			gap: 6px;
+			background-color: transparent;
+			border-radius: 500px;
+			border: 1px solid $white-200;
+			font-family: "Manrope";
+			font-size: 18px;
+			font-style: normal;
+			font-weight: 500;
+			line-height: 28px; 
+			padding: 2px 2px;
+			max-width: 156px;
+			width: 100%;
+			justify-content: space-around;
+			span{
+				padding: 12px;
+			}
+			button{
+				border: none;
+				outline: transparent;
+				background-color: transparent;
+				height: fit-content;
+				padding: 7px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				
+			}
+			input{
+				-webkit-appearance: none;
+				-moz-appearance: textfield;
+				appearance: none;
+				border: none;
+				margin: 0;
+				max-width: 12px;
+				min-width: 6px;
+				outline: none;
+				text-align: center;
+				width: 100%;
+				background-color: transparent;
+				min-width:6px;
+				&::-webkit-inner-spin-button,
+				&::-webkit-outer-spin-button {
+					-webkit-appearance: none;
+					margin: 0;
+				}
+			}
+		}

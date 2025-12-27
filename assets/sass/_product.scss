@@ -12,7 +12,6 @@
 			width: 100%;
 			justify-content:flex-start ;
 		}
-
 		
 	}
 	&__slider{
@@ -233,25 +232,7 @@
 				width: calc(100% - 151px - 19px);
 			}
 		}
-		&__count{
-			display: flex;
-			align-items: center;
-			gap: 6px;
-			background-color: transparent;
-			border-radius: 500px;
-			border: 1px solid $white-200;
-			font-family: "Manrope";
-			font-size: 18px;
-			font-style: normal;
-			font-weight: 500;
-			line-height: 28px; 
-			padding: 4px 12px;
-			max-width: 156px;
-			width: 100%;
-			span{
-				padding: 12px;
-			}
-		}
+	
 		&__accord__item{
 			padding: 24px 0;
 			border-top: 1px solid  $white-200;
