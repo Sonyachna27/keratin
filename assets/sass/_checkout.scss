@@ -1,0 +1,211 @@
+@use './roots/' as *;
+.checkout{
+	&__title{
+		display: flex;
+		align-items: center;
+		gap: 16px;
+		padding: 46px 0;
+		@media screen and (min-width:1240px) {
+			padding: 64px 0 46px;
+		}
+	}
+	&__content{
+		.checkout__wrapper{
+			display: flex;
+			flex-direction: column;
+			gap: 32px;
+			@media screen and (min-width:1024px) {
+				flex-direction: row;
+			}
+			&-left{
+				@media screen and (min-width:1024px) {
+						width: 64%;
+					}
+					.woocommerce-billing-fields__field-wrapper{
+						display: flex;
+						flex-wrap: wrap;
+						gap: 32px;
+						margin-bottom: 64px;
+					}
+					.form-row{
+						@media screen and (min-width:1024px) {
+							width: calc(50% - 16px);
+						}
+						display: flex;
+						flex-direction: column;
+						gap: 7px;
+						label{
+							font-family: "Manrope";
+								font-size: 10px;
+								font-style: normal;
+								font-weight: 700;
+								line-height: 15px;
+								letter-spacing: 1px;
+								text-transform: uppercase;
+								color: $gray;
+								span{
+									color: $black;
+								}
+						}
+						input{
+							width: 100%;
+							padding: 8px 0;
+							border: none;
+							outline: none;
+							border-bottom: 1px solid $white-200;
+							color: #C5C4C4;
+							font-family: "Manrope", sans-serif;
+							font-size: 14px;
+							font-style: normal;
+							font-weight: 400;
+							line-height: normal;
+							::placeholder{
+								color: #C5C4C4;
+								font-family: "Manrope", sans-serif;
+								font-size: 14px;
+								font-style: normal;
+								font-weight: 400;
+								line-height: normal;
+								opacity: 1;
+							}
+						}
+						
+					}
+					.shipping-method{
+						margin-bottom: 64px;
+						display: flex;
+						flex-direction: column;
+						gap: 32px;
+					}
+					.shipping-method__list{
+						display: flex;
+						flex-wrap: wrap;
+						gap: 16px;
+						
+						li{
+							position: relative;
+							display: flex;
+							gap: 16px;
+							align-items: center;
+							padding: 16px;
+							border-radius: 6px;
+							cursor: pointer;
+							transition: 600ms ease-out;
+							border: 0.615px solid $white-200;
+							
+							@media screen and (min-width:1024px) {
+								width: calc(50% - 8px);
+							}
+							&:has(input[type="radio"]:checked) {
+								background-color: $black; /* новий колір для вибраного li */
+								border-color: $black;
+								color: $white;
+								span:has(svg){
+									background-color: $white;
+									svg{
+										path{
+											stroke:$black;
+										}
+									}
+								}
+							}
+							& input{
+								cursor: pointer;
+								position: absolute;
+								top: 0;
+								left: 0;
+								right: 0;
+								bottom: 0;
+								opacity: 0;
+								padding: 0;
+								margin: 0;
+								z-index: 1;
+							}
+							span:has(svg){
+								display: flex;
+								align-items: center;
+								justify-content: center;
+								border-radius: 50%;
+								width: 36px;
+								height: 36px;
+								background-color: $accent;
+								transition: 600ms ease-out;
+								aspect-ratio: 1;
+								svg{
+									path{
+											stroke:white;
+										}
+								*{
+									transition: 600ms ease-out;
+								}
+							}
+							}
+							label{
+								display: flex;
+								flex-direction: column;
+								font-family: "Manrope";
+								font-size: 14px;
+								font-style: normal;
+								font-weight: 700;
+								line-height: 21px; /* 150% */
+								letter-spacing: 0.35px;
+								text-transform: uppercase;
+								span{
+									font-size: 12px;
+									font-weight: 400;
+									line-height: 18px;
+									text-transform: none;
+								}
+							}
+						}
+					}
+			}
+			&-right{
+				padding: 24px; 
+				background-color: $white-400;
+				@media screen and (min-width:1024px) {
+					width: 32%;
+				}
+			}
+
+		}
+	}
+}
+.shipping_method-title-wrap{
+	display: flex;
+	align-items: center;
+	gap:12px;
+	padding-bottom: 10px;
+	border-bottom: 0.615px solid $white-200;
+	width: 100%;
+	span{
+		background-color: $black;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		max-width: 24px;
+		max-height: 24px;
+		padding: 10px;
+		color: $white;
+		font-family: "Manrope";
+		font-size: 12px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 16px; /* 133.333% */
+		letter-spacing: 0.45px;
+		text-transform: uppercase;
+	}
+	h3{
+		font-family: "Manrope", sans serif;
+		font-size: 18px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 27px; /* 150% */
+		letter-spacing: 0.45px;
+		text-transform: uppercase;
+		@media screen and (min-width:1024px) {
+			
+		}
+	}
+}

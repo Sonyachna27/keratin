@@ -1,23 +1,40 @@
 @use './roots/' as *;
 .cart{
 	margin-bottom: 120px;
+	&.null{
+		margin-bottom: 120px;
+		@media screen and (min-width:1024px) and (max-width:1239.9px){
+			// margin-bottom: 537px;
+			margin-bottom: 0;
+			height: 100dvh;
+		}
+		@media screen and (min-width:1240px) {
+			margin-bottom: 300px;
+		}
+	}
 	&__title{
 		display: flex;
 		align-items: center;
 		gap: 18px;
-		padding: 31px 0 18px;
-		
+		padding: 31px 0 18px;		
 		@media screen and (min-width:1024px) {
 			padding-top: 43px;		
 			margin-bottom: 38px;
 		}
 		@media screen and (min-width:1240px) {
-			padding-bottom: 46px;
-			
+			padding-bottom: 46px;			
 		}
 		@media screen and (min-width:1024px) and (max-width:1239.9px)  {
-			border-bottom: 0.615px solid  $white-200;
-			
+			border-bottom: 0.615px solid  $white-200;			
+		}
+		.null &{
+			padding-bottom: 22px;
+			border: none;
+			margin-bottom: 0;
+			@media screen and (min-width:1024px) {
+				padding-bottom: 22px;
+				margin-bottom: 0;
+			}
 		}
 		span{
 			font-family: "Manrope";
@@ -29,7 +46,7 @@
 			text-transform: lowercase;
 			color: $gray;
 		}
-	
+		
 	}
 	&-return{
 		text-align: center;
@@ -43,8 +60,12 @@
 		display: flex;
 		align-items: center;
 		gap: 10px;
+		transition: 600ms ease-out;
 		@media screen and (max-width:1023.9px) {
 			display: none;
+		}
+		&:hover{
+			text-decoration: underline;
 		}
 	}
 	&__content{
@@ -209,7 +230,21 @@
 			}
 
 		}
-
+	}
+	&__null{
+		display: flex;
+		flex-direction:column;
+		gap: 22px;
+		 p{
+			font-size: 18px;
+			font-style: normal;
+			font-weight: 300;
+			line-height: 29.25px; 
+		 }
+		 & .btn{
+			max-width: 320px;
+			width: 100%;
+		 }
 	}
 	&-table{	
 		width: 100%;
