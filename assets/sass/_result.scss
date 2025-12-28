@@ -1,0 +1,82 @@
+@use './roots' as *;
+.result{
+	&__title{
+			display: flex;
+			flex-direction: column;
+			gap: 16px;
+			text-align: center;
+			margin-top: 31px;
+			margin-bottom: 44px;
+			align-items: center;
+			& .null{
+				margin-top: 51px;
+				margin-bottom: 56px;
+				@media screen and (min-width:1024px) {
+					margin-bottom: 88px;
+				}
+			}
+			div{
+				font-family: "Manrope", sans-serif;
+				font-size: 24px;
+				font-style: normal;
+				font-weight: 500;
+				line-height: 40px;
+				@media screen and (min-width:1024px) {
+					font-size: 36px;
+				}
+			}
+			p{
+				font-size: 16px;
+				font-style: normal;
+				font-weight: 400;
+				line-height: 28px; /* 175% */
+				letter-spacing: -0.439px;
+				span{
+					color: $accent;
+					font-weight: 700;
+				}
+			}
+		}
+		&__null{
+			margin-bottom: 120px;
+			@media screen and (min-width:1024px) and (max-width:1239.9px) {
+				margin-bottom: 320px;
+			}
+			@media screen and (min-width:1240px) {
+				margin-bottom: 210px;
+			}
+		}
+&__text{
+			display: flex;
+		flex-direction: column;
+		gap: 24px;
+		align-items: center;
+		max-width:392px;
+		width: 100%;
+		margin: 0 auto;
+		text-align: center;
+			div{
+				max-width: 64px;
+				max-height: 64px;
+				width: 100%;
+				height: 100%;
+				aspect-ratio: 1;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background-color: $accent;
+				border-radius: 50%;
+			}
+			p{
+				font-size: 14px;
+				font-style: normal;
+				font-weight: 400;
+				line-height: 24px; /* 171.429% */
+				letter-spacing: -0.312px;
+				color: $gray-100;
+				@media screen and (min-width:1024px) {
+					font-size: 16px;
+				}
+			}
+		}
+}
