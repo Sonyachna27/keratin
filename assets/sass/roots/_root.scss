@@ -259,6 +259,7 @@ height: 24px;
 		display: flex;
 		gap: 8px;
 		align-items: center;
+		flex-wrap: wrap;
 	}
 
 		a{
@@ -596,13 +597,14 @@ height: 24px;
 				appearance: none;
 				border: none;
 				margin: 0;
-				max-width: 12px;
-				min-width: 6px;
+				max-width: fit-content;
+				min-width: 10px;
 				outline: none;
 				text-align: center;
 				width: 100%;
 				background-color: transparent;
 				min-width:6px;
+				padding: 0;
 				&::-webkit-inner-spin-button,
 				&::-webkit-outer-spin-button {
 					-webkit-appearance: none;

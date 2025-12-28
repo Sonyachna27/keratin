@@ -56,9 +56,14 @@
 				<ul>
 					<li><a href="./page-catalog.html">Каталог</a></li>
 					<li class="active"><a href="#">%sale</a></li>
-					<li><a href="#">БРЕНДИ</a></li>
-					<li><a href="#">Про нас</a></li>
-					<li><a href="#">Контакти</a></li>
+					<li><a href="./page-brands.html">БРЕНДИ</a></li>
+					<li><a href="./page-about.html">Про нас</a></li>
+					<li><a href="./page-contact.html">Контакти</a></li>
+					<li><a href="./page-cart.html">Замовлення</a></li>
+					<li><a href="./page-delivery.html">Доставка</a></li>
+					<li><a href="./page-checkout.html">Оплата</a></li>
+					<li><a href="./single-brand.html">Один бренд</a></li>
+					<li><a href="./single-product.html">Один product</a></li>
 				</ul>
 			</nav>
 			<div class="header__cta">
@@ -101,7 +106,7 @@
 					</div>
 				</div>
 			</div>
-			<a href="#" class="basket-btn">
+			<a href="./page-delivery.html" class="basket-btn">
 				<span>0</span>
 				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
 					<path d="M14 8C14 8.79565 13.6313 9.55871 12.9749 10.1213C12.3185 10.6839 11.4283 11 10.5 11C9.57174 11 8.6815 10.6839 8.02513 10.1213C7.36875 9.55871 7 8.79565 7 8" stroke="#111111" stroke-linecap="round" stroke-linejoin="round"/>
@@ -254,72 +259,59 @@
 							</li>
 						</ul>
 
-						<div class="delivery-address">			
-
-							<div class="form-row">
-								<label for="city">Місто</label>
-								<input type="text" id="city" name="city" placeholder="Місто">
-							</div>
-
-							<div class="form-row">
-								<label for="warehouse">Відділення</label>
-								<input type="text" id="warehouse" name="warehouse" placeholder="Почніть вводити назву міста...">
+							<div class="delivery-address">	
+								<div class="form-row">
+									<label for="city">Місто</label>
+									<input type="text" id="city" name="city" placeholder="Місто">
+								</div>
+								<div class="form-row">
+									<label for="delivery_type">Відділення / Поштомат</label>
+									<select id="delivery_type" name="delivery_type">
+										<option value="warehouse">Оберіть відділення...</option>
+									</select>
+								</div>
 							</div>
 						</div>
-						<div class="form-row">
-								<label for="delivery_type">Відділення / Поштомат</label>
-								<select id="delivery_type" name="delivery_type">
-									<option value="warehouse">Оберіть відділення...</option>
-								</select>
+					</div>
+					<div class="payment">
+						<div class="shipping_method-title-wrap payment__title">
+								<span>3</span>
+								<h3 class="shipping_method-title">Оплата</h3>
 							</div>
-					</div>
+
+						<div class="payment__methods">
+
+							<label>
+								<input type="radio" name="payment_method" value="card" checked>
+								<span class="payment-option__text">
+									<img src="assets/images/CardIcon.svg" alt="Plata by Mono">
+									Оплата карткою на сайті							
+								</span>
+								<span>Apple Pay, Google Pay, Visa, Mastercard</span>
+							</label>
+
+							<label>
+								<input type="radio" name="payment_method" value="bank_transfer">
+								<span class="payment-option__text">
+									<img src="assets/images/CashIcon.svg" alt="  Накладений платіж">
+									Накладений платіж
+									</span>
+									<span>Оплата при отриманні (комісія НП 20₴ + 2%, передоплата 200₴)</span>
+								     
+							</label>
+						</div>
 
 					</div>
-					<div class="woocommerce-shipping-fields">
-					</div>
-
 					<div class="order-comment">
 						<h4 class="order-comment__title">
 							Додати коментар до замовлення
 						</h4>
-
 						<div class="order-comment__field">
 							<textarea
 								name="order_comment"
 								id="order_comment"
 								placeholder="Вкажіть додаткову інформацію до замовлення..."\ ></textarea>
 						</div>
-					</div>
-
-					<div class="payment">
-						<div class="shipping_method-title-wrap payment__title">
-								<span>1</span>
-								<h3 class="shipping_method-title">Оплата</h3>
-							</div>
-
-						<div class="payment__methods">
-
-							<label class="payment-option">
-								<input type="radio" name="payment_method" value="card" checked>
-								<span class="payment-option__radio"></span>
-								<span class="payment-option__text">
-									<img src="assets/images/CardIcon.svg" alt="Plata by Mono">
-									Оплата карткою на сайті
-									<span>Apple Pay, Google Pay, Visa, Mastercard</span>
-								</span>
-							</label>
-
-							<label class="payment-option">
-								<input type="radio" name="payment_method" value="bank_transfer">
-								<span class="payment-option__radio"></span>
-								<span class="payment-option__text">
-									<img src="assets/images/CarhIcon.svg" alt="  Накладений платіж">
-									Накладений платіж
-									<span>Оплата при отриманні (комісія НП 20₴ + 2%, передоплата 200₴)</span>
-								</span>     
-							</label>
-						</div>
-
 					</div>
 				</div>
 				</div>
@@ -332,11 +324,10 @@
 
 				</div>
 				<div class="cart__product-block">
-
+					тут будуть картки товарів)
 				</div>
-
 				<div id="order_review" class="woocommerce-checkout-review-order">
-				<table class="shop_table woocommerce-checkout-review-order-table" style="position: static; zoom: 1;">
+				<table class="shop_table woocommerce-checkout-review-order-table" >
 				<tbody>
 				</tbody>
 				<tfoot>
@@ -344,8 +335,7 @@
 				<th>Товари</th>
 				<td data-title="Всього">1770 ₴</td>
 				</tr>
-
-				<tr id="cart-delivery" class="cart-delivery" style="display: none;">
+				<tr id="cart-delivery" class="cart-delivery">
 				<th>Доставка</th>
 				<td data-title="За тарифами перевізника">За тарифами перевізника</td>
 				</tr>
@@ -355,19 +345,26 @@
 				<td>
 					<strong>
 						<span class="woocommerce-Price-amount amount">
-							<bdi>1840 ₴&nbsp;
+							<bdi>1840 &nbsp;
 								<span class="woocommerce-Price-currencySymbol">₴</span>
 							</bdi>
 						</span>
 					</strong>
 				</td>
 				</tr>
-
-
 				</tfoot>
 				</table>
 
-				<button style="width:100%;" type="submit" class="hushladies-button alt btn" name="woocommerce_checkout_place_order" id="place_order" value="Підтвердити >" data-value="Оформити замовлення">Підтвердити ></button>				</div>
+				<button type="submit" class="hushladies-button alt btn" name="woocommerce_checkout_place_order"
+				 id="place_order" 
+				 value="Підтвердити >" 
+				 data-value="Оформити замовлення">
+				 Підтвердити 
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+						<path d="M6 12L10 8L6 4" stroke="white" stroke-width="1.33306" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>
+				</button>			
+				</div>
 
 				</div>
 				</div>

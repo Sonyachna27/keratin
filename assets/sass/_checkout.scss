@@ -1,5 +1,6 @@
 @use './roots/' as *;
 .checkout{
+	margin-bottom: 120px;
 	&__title{
 		display: flex;
 		align-items: center;
@@ -28,6 +29,7 @@
 						margin-bottom: 64px;
 					}
 					.form-row{
+						width: 100%;
 						@media screen and (min-width:1024px) {
 							width: calc(50% - 16px);
 						}
@@ -47,7 +49,8 @@
 									color: $black;
 								}
 						}
-						input{
+						input,
+						select, textarea{
 							width: 100%;
 							padding: 8px 0;
 							border: none;
@@ -92,8 +95,8 @@
 							cursor: pointer;
 							transition: 600ms ease-out;
 							border: 0.615px solid $white-200;
-							
-							@media screen and (min-width:1024px) {
+							width: 100%;
+							@media screen and (min-width:768px) {
 								width: calc(50% - 8px);
 							}
 							&:has(input[type="radio"]:checked) {
@@ -159,12 +162,164 @@
 							}
 						}
 					}
+					.delivery-address{
+						display:flex;
+						flex-wrap: wrap;
+						gap: 32px;
+				
+					}
+						input,
+						select, textarea{
+							width: 100%;
+							padding: 8px 0;
+							border: none;
+							outline: none;
+							border-bottom: 1px solid $white-200;
+							color: #C5C4C4;
+							font-family: "Manrope", sans-serif;
+							font-size: 14px;
+							font-style: normal;
+							font-weight: 400;
+							line-height: normal;
+							::placeholder{
+								color: #C5C4C4;
+								font-family: "Manrope", sans-serif;
+								font-size: 14px;
+								font-style: normal;
+								font-weight: 400;
+								line-height: normal;
+							}
+						}
+						textarea{
+							min-height: 150px;
+							resize: none;
+							border: 0.615px solid $white-200;
+							padding: 16px;
+						}
+						.order-comment__title{
+							color: var(--Black, #111);
+							font-family: "Manrope", sans-serif;
+							font-size: 14px;
+							font-style: normal;
+							font-weight: 700;
+							line-height: 21px; 
+							letter-spacing: 0.35px;
+							text-transform: uppercase;
+							margin-bottom: 16px;
+						}
+						.payment{
+								margin-bottom: 64px;
+								&__title{
+									margin-bottom: 32px;
+								}
+								&__methods{
+									display: flex;
+									flex-direction: column;
+									gap: 16px;
+								label{
+									position: relative;
+									padding-left: 36px;
+								}
+								input[type="radio"]{
+									position: absolute;
+									left: 0;
+									top: 0;
+									width: 20px;
+									height: 20px;
+									border: 0.692px solid #C5C4C4;
+									border-radius: 50%;
+									accent-color: $black;
+									transition: 600ms ease-out;
+								}
+								span:not([class]){
+									padding-left: 24px;
+								}
+								.payment-option__text{
+									display: flex;
+									align-items: center;
+									gap: 8px;
+									font-family: "Manrope", sans-serif;
+									font-size: 14px;
+									font-style: normal;
+									font-weight: 700;
+									line-height: 20px; /* 142.857% */
+									letter-spacing: 0.35px;
+									text-transform: uppercase;
+									svg{
+										width:16px;
+									}
+								}
+
+								}
+								
+						}
 			}
 			&-right{
 				padding: 24px; 
 				background-color: $white-400;
 				@media screen and (min-width:1024px) {
 					width: 32%;
+				}
+				.cart__title-desk{
+					font-family: "Manrope";
+					font-size: 18px;
+					font-style: normal;
+					font-weight: 700;
+					line-height: 28px; 
+					letter-spacing: 0.45px;
+					text-transform: uppercase;
+					padding-bottom: 18px;
+					border-bottom: 1px solid $white-200;
+					margin-bottom: 26px;
+				}
+				.btn{
+					text-transform:uppercase;
+					padding: 16px;
+					width: 100%;
+
+				}
+				table{
+					width: 100%;
+					border-collapse: collapse;
+				
+					tr {
+						th, td{
+							font-family: "Manrope", sans-serif;
+							font-size: 14px;
+							font-style: normal;							
+							line-height: 20px;
+							padding-bottom:16px;
+						}
+						th{
+							text-align: left;							
+							font-weight: 400;
+							color: $gray-100;
+						}
+						td{
+							font-weight: 700;
+							text-align: right;
+						}
+					}
+						.cart-delivery{
+							th, td{
+								padding-bottom: 26px;
+								border-bottom: 1px solid $black;
+							}
+						}
+						.order-total{
+							th, td{
+								padding-top: 37px;
+								padding-bottom: 26px;
+								font-weight: 700;
+							}
+							th{
+							text-transform: uppercase;
+							}
+							td{
+								font-size: 24px;
+								line-height: 32px; 
+							}
+						}
 				}
 			}
 

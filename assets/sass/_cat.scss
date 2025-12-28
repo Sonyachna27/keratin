@@ -75,9 +75,10 @@ background: linear-gradient(0deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.00) 50
 			background-repeat: no-repeat;
 			background-size: 0% 1px;
 			background-position: 0 100%;
+			margin-top: auto;
 			@media screen and (min-width:1024px) {
 				margin: 0 auto;
-				margin-top: auto;
+				
 			}
 		}
 		&-sale{
@@ -89,6 +90,7 @@ background: linear-gradient(0deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.00) 50
 			color: $white;
 			font-family: "Manrope";
 			background-color: #b2806f;
+			text-align: center;
 				font-weight: 700;
 				left: -28px;
 				line-height: 20px;

@@ -41,6 +41,8 @@
 		border-radius: 8px;
 		background-color: transparent;
 		border: 0.615px solid $white-200;		
+		color:$black;
+
 		svg{
 			width: 16px;
 			height: 16px;
@@ -101,10 +103,14 @@
 			font-size: 14px;
 			font-style: normal;
 			font-weight: 700;
-			line-height: 20px; /* 142.857% */
+			line-height: 20px; 
 			letter-spacing: 0.2px;
 			text-transform: uppercase;
-			max-width: 100px;
+			max-width: 120px;
+			display: inline-block;
+			width: fit-content;
+
+
 			&::-ms-expand { display: none; } 
 
 			// &:hover { border-color: $white-400; } 
