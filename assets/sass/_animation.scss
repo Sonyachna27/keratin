@@ -28,9 +28,8 @@
 		width: max-content;
 		align-items: center;
 		transition: .3s linear;
-		animation: marqueeLine var(--_animation-duration, 40s) var(--_animation-direction, normal) linear infinite;
+		animation: marqueeLine var(--_animation-duration, 25s) var(--_animation-direction, normal) linear infinite;
 		gap:60px;
-
 			@media screen and (min-width:768px) {
 				width: 100%;
 				justify-content: space-between;

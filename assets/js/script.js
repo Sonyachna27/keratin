@@ -34,34 +34,58 @@ const openSearch = () => {
 };
 
 const addAnimationInit = () => {
-	const scrollers = document.querySelectorAll('.marquee');
+  const scrollers = document.querySelectorAll('.marquee');
+  const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-	const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-	const isMobile = window.innerWidth < 768;
+  const checkState = () => {
+    const isReducedMotion = mediaQuery.matches;
+    const isMobile = window.innerWidth < 768;
 
-	if (!isReducedMotion && isMobile) {
-		addAnimation();
-	}
+    if (!isReducedMotion && isMobile) {
+      addAnimation();
+    } else {
+      removeAnimation();
+    }
+  };
 
-	function addAnimation() {
-		scrollers.forEach((scroller) => {
-			if (scroller.dataset.animate) return;
+  function addAnimation() {
+    scrollers.forEach((scroller) => {
+      if (scroller.dataset.animate === 'true') return;
 
-			scroller.setAttribute('data-animate', 'true');
+      scroller.dataset.animate = 'true';
 
-			const scrollerInner = scroller.querySelector('.marquee__wrap');
-			if (!scrollerInner) return;
+      const scrollerInner = scroller.querySelector('.marquee__wrap');
+      if (!scrollerInner) return;
 
-			const scrollerContent = Array.from(scrollerInner.children);
+      const items = Array.from(scrollerInner.children);
 
-			scrollerContent.forEach((item) => {
-				const duplicatedItem = item.cloneNode(true);
-				duplicatedItem.setAttribute('aria-hidden', 'true');
-				scrollerInner.appendChild(duplicatedItem);
-			});
-		});
-	}
+      items.forEach((item) => {
+        const clone = item.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        clone.classList.add('marquee__clone');
+        scrollerInner.appendChild(clone);
+      });
+    });
+  }
+
+  function removeAnimation() {
+    scrollers.forEach((scroller) => {
+      if (scroller.dataset.animate !== 'true') return;
+      delete scroller.dataset.animate;
+      const scrollerInner = scroller.querySelector('.marquee__wrap');
+      if (!scrollerInner) return;
+
+      scrollerInner.querySelectorAll('.marquee__clone').forEach((clone) => {
+        clone.remove();
+      });
+    });
+  }
+  checkState();
+  window.addEventListener('resize', checkState);
+
+  mediaQuery.addEventListener('change', checkState);
 };
+
 
 
 const toggleMenu = () => {
