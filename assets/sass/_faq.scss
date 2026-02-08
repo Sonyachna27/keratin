@@ -1,0 +1,56 @@
+@use './roots/' as *;
+.faq{
+	margin-bottom: 80px;
+	@media screen and (min-width:768px) {
+		margin-bottom: 120px;
+	}
+	&__title{
+		margin-bottom: 32px;
+		@media screen and (min-width:768px) {
+			margin-bottom: 48px;
+		}
+
+	}
+	&__item{		
+		padding: 20px;
+		border-radius: 20px;
+		@media screen and (min-width:768px) {
+			padding: 32px;
+		}
+		&.active{
+			background-color: $white;
+			box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.04);
+			.faq__item__top{
+				color: $black;
+			}
+			.faq-icon-wrapper svg{
+				transform: rotate(45deg);
+			}
+		}
+		&__top{
+			justify-content: space-between;
+			gap: 14px;
+			color: $text;
+			h3{
+				
+				@include p-xl;
+				font-weight: 700;
+		
+			}
+		}
+		.faq-icon-wrapper{
+			width: 32px;
+			height: 32px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			svg{
+				transition: 600ms ease-out;
+			}
+		}
+		&-bottom{
+			@include p-m;
+			color: $black;
+		}
+	}
+}

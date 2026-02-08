@@ -1,0 +1,104 @@
+@use './roots' as *;
+.adv{
+	margin-top: 60px;
+	margin-bottom: 60px;
+	@media screen and (min-width:768px) {
+		margin-bottom: 80px;
+	}
+	&__items{
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		@media screen and (min-width:992px) {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 20px;
+		}
+	}
+	&__item{
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		padding: 20px;
+		border-radius: 24px;
+		background-color: $white;
+		&__top{
+			font-size: 18px;
+			font-style: normal;
+			font-weight: 600;
+			line-height: 140%;
+			margin-bottom: 30px;
+			padding-right: 90px;
+			color: $black;
+			@media screen and (min-width:768px) {
+				padding-right: 96px;
+				font-size: 20px;
+				font-style: normal;
+				font-weight: 600;
+				line-height: 140%;
+			}
+		}
+		&__info{
+			margin-bottom: 20px;
+			color: $text;
+			@include p-s;
+		}
+		&__link{
+			position: relative;
+			font-size: 16px;
+			font-style: normal;
+			font-weight: 600;
+			line-height: normal;
+			letter-spacing: -0.32px;
+			color: $primary-100;
+			width: fit-content;
+			cursor: pointer;
+			&:hover{
+				&:after{
+					transform: translate(10px, -50%) ;
+				}
+			}
+			&:after{
+				content: '';
+				width:24px;
+				height: 24px;
+				position: absolute;
+				left: (calc(100% + 10px));
+				top: 50%;
+				transform: translateY(-50%);
+				transition: 600ms ease-out;
+				background: url('../../assets/images/blue-arrow.svg') center center / 24px no-repeat;
+			}
+		}
+		&__icon{
+			position: absolute;
+			top: 0;
+			right: 0;
+			border-radius: 24px;
+			padding: 19px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			max-width: 70px;
+			max-height: 70px;
+			width: 100%;
+			height: 100%;
+			min-width: 70px;
+			background-color: $accent-600;
+			box-shadow: -15.259px 18.525px 48px 0 rgba(253, 174, 56, 0.35), -9.89px 12.007px 28.111px 0 rgba(253, 174, 56, 0.27), -5.878px 7.135px 15.289px 0 rgba(253, 174, 56, 0.21), -3.052px 3.705px 7.8px 0 rgba(253, 174, 56, 0.17), -1.243px 1.509px 3.911px 0 rgba(253, 174, 56, 0.14), -0.283px 0.343px 1.889px 0 rgba(253, 174, 56, 0.08);
+			@media screen and (min-width:768px) {
+				max-width: 86px;
+				max-height: 86px;
+				min-width: 86px;
+			}
+			& img{
+				max-width: 40px;
+				max-height: 40px;
+				@media screen and (min-width:768px) {
+				max-width: 48px;
+				max-height: 48px;
+			}
+			}
+		}
+	}
+}
